@@ -1,9 +1,9 @@
 {
-  "short_name": "BeefStake",
-  "name": "BeefStake",
+  "short_name": "VITCStake",
+  "name": "VITCStake",
   "icons": [
     {
-      "src": "cow1.png",
+      "src": "vault1.png",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/png"
     }
