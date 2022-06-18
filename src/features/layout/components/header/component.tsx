@@ -1,5 +1,5 @@
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import { AppBar, Button, Chip, styled, Toolbar, tooltipClasses, Typography } from '@mui/material';
+import { AppBar, Button, Chip, styled, Toolbar, tooltipClasses, Typography, Grid, Link } from '@mui/material';
 import React, { useState, useEffect } from 'react';
 import { CommonConstants } from '../../../../common/constants';
 import { useConnectedWeb3Context } from '../../../../contexts/connectedWeb3';
@@ -11,6 +11,9 @@ import IconButton from '@mui/material/IconButton';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import { useThemeMode } from "../../../../hooks/themeContext";
+
+import "../menu/navbar.css";
+import DehazeIcon from '@mui/icons-material/Dehaze';
 
 const Root = styled('div')(
   ({ theme }) => `
@@ -61,22 +64,42 @@ export const Header: React.FC = (props: any) => {
   }, []);
   //end mobile detect
 
+  const [isNavExpanded, setIsNavExpanded] = useState(false);
+
   return (
     <Root>
       <AppBar position="static" color="primary">
-        <Toolbar>
-          <img src={"./vault1.png"} alt="logo" width="60" />
-          <TitleTypography variant="h6">
+        <nav className="navigation">
+          <img src={"./vault1.png"} alt="logo" width="60" className='navLogo'/>
+          <TitleTypography variant="h6" className='navTitle'>
             {CommonConstants.APP_NAME}
             <TitleTypography sx={{ fontSize: 11 }}>
               By VitaminCoin
             </TitleTypography>
           </TitleTypography>
-            <IconButton sx={{ ml: 1 }} onClick={() => handleDarkMode()} color="inherit">
-              {darkMode ? <Brightness7Icon /> : <Brightness4Icon />}
-            </IconButton>
-            <NetworkList></NetworkList>
-          {context.account ? (
+      <div
+        className={
+          isNavExpanded ? "navigation-menu expanded" : "navigation-menu"
+        }
+      >
+        <ul>
+          <li>
+              <Link color="inherit" underline="none" href={"https://www.vitamincoin.org/home"} target="_blank" sx={{cursor: "pointer"}}>
+                VITAMINCOIN
+              </Link>
+              </li>
+              <li>
+              <Link color="inherit" underline="none" href={"https://vitaminfaucet.com"} target="_blank" sx={{cursor: "pointer"}}>
+                FAUCET
+              </Link>
+              </li>
+              <li>
+              <Link color="inherit" underline="none" href={"https://swap.vitc.org/"} target="_blank" sx={{cursor: "pointer"}}>
+                VITCSWAP
+              </Link>
+              </li>
+              <li>
+              {context.account ? (
             <>
               {mobileView ? (
                   <>
@@ -88,19 +111,31 @@ export const Header: React.FC = (props: any) => {
                   </BootstrapTooltip >
                 </>
                 )}
-              <Button color="inherit" onClick={handleClickLogout}>
+              <Link color="inherit" underline="none" onClick={handleClickLogout} sx={{cursor: "pointer"}}>
                 Logout
-              </Button>
+              </Link>
             </>
           ) : (
             <>
-              <Button color="inherit" onClick={handleClickLogin}>
+              <Link color="inherit" underline="none" onClick={handleClickLogin} sx={{cursor: "pointer"}}>
                 Login
-              </Button>
+              </Link>
               <LoginDialog open={loginOpen} setOpen={setLoginOpen} onClose={handleLoginClose}></LoginDialog>
             </>
           )}
-        </Toolbar>
+          </li>
+        </ul>
+      </div>
+      <IconButton sx={{ ml: 1 }} onClick={() => handleDarkMode()} color="inherit">
+        {darkMode ? <Brightness7Icon /> : <Brightness4Icon />}
+      </IconButton>
+      <NetworkList></NetworkList>
+      <Link className="hamburger" onClick={() => {
+          setIsNavExpanded(!isNavExpanded);
+        }}>
+        <DehazeIcon/>
+      </Link>
+</nav>
       </AppBar>
     </Root >
   )

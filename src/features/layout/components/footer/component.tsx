@@ -45,6 +45,11 @@ export const Footer: React.FC = () => {
                 faucet
               </Link>
             </Grid>
+            <Grid item>
+            <Link color="secondary" underline="none" href={"https://swap.vitc.org/"} target="_blank" sx={{cursor: "pointer"}}>
+                vitcswap
+              </Link>
+            </Grid>
           </Grid>
           <Grid direction="row" container xs={12} md={3} justifyContent="center" alignItems="center" spacing={2}>
             <Grid item>
