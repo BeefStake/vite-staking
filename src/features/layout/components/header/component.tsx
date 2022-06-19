@@ -1,5 +1,5 @@
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import { AppBar, Button, Chip, styled, Toolbar, tooltipClasses, Typography, Grid, Link } from '@mui/material';
+import { AppBar, Chip, styled, tooltipClasses, Typography, Link } from '@mui/material';
 import React, { useState, useEffect } from 'react';
 import { CommonConstants } from '../../../../common/constants';
 import { useConnectedWeb3Context } from '../../../../contexts/connectedWeb3';
