@@ -16,7 +16,7 @@ export const QrCode: React.FC<Props> = (props: Props) => {
       background: '#fff',
       mode: modes.DRAW_WITH_IMAGE_BOX,
       radius: 0,
-      image: process.env.PUBLIC_URL + '/vault1.png',
+      image: process.env.PUBLIC_URL + '/Vault_gradient.png',
       mSize: 0.3
     };
 

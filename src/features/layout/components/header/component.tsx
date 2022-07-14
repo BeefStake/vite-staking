@@ -70,7 +70,7 @@ export const Header: React.FC = (props: any) => {
     <Root>
       <AppBar position="static" color="primary">
         <nav className="navigation">
-          <img src={"./vault1.png"} alt="logo" width="60" className='navLogo'/>
+          <img src={"./Vault_gradient.png"} alt="logo" width="60" className='navLogo'/>
           <TitleTypography variant="h6" className='navTitle'>
             {CommonConstants.APP_NAME}
             <TitleTypography sx={{ fontSize: 11 }}>
@@ -98,32 +98,35 @@ export const Header: React.FC = (props: any) => {
                 VITCSWAP
               </Link>
               </li>
-              <li>
+              
               {context.account ? (
             <>
               {mobileView ? (
                   <>
                   </>
                 ) : (
-                  <>
+                  <li>
                   <BootstrapTooltip sx={{ [`& .${tooltipClasses.tooltip}`]: { maxWidth: "none" } }} title={context.account} placement="bottom" arrow>
                     <Chip sx={{ color: "white", '& .MuiChip-icon': { color: "white" } }} icon={<AccountCircleIcon />} label={truncateAddress(context.account)} variant="outlined" />
                   </BootstrapTooltip >
-                </>
+                  </li>
                 )}
+                <li>
               <Link color="inherit" underline="none" onClick={handleClickLogout} sx={{cursor: "pointer"}}>
                 Logout
               </Link>
+              </li>
             </>
           ) : (
             <>
+            <li>
               <Link color="inherit" underline="none" onClick={handleClickLogin} sx={{cursor: "pointer"}}>
                 Login
               </Link>
-              <LoginDialog open={loginOpen} setOpen={setLoginOpen} onClose={handleLoginClose}></LoginDialog>
+              <LoginDialog open={loginOpen} setOpen={setLoginOpen} onClose={handleLoginClose}></LoginDialog>           
+            </li>
             </>
-          )}
-          </li>
+          )}  
         </ul>
       </div>
       <IconButton sx={{ ml: 1 }} onClick={() => handleDarkMode()} color="inherit">

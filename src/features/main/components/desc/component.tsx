@@ -29,7 +29,7 @@ export const Desc: React.FC = () => {
         </Grid>
         <Grid container xs={12} md={6} lg={6} alignItems="center" justifyContent="center" direction="column">
           <Box p={2}>
-            <img alt="staking" src={"./vault1.png"} width="350" />
+            <img alt="staking" src={"./Vault_gradient.png"} width="350" />
           </Box>
         </Grid>     
     </Grid>
