@@ -202,7 +202,7 @@ export class ViteClient {
     const payload = {
       addressHeightRange: {
         placeholder: {
-          fromHeight: "0",
+          fromHeight: "1",
           toHeight: "0",
         },
       },
