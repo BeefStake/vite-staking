@@ -37,7 +37,9 @@ export class ViteAPIClient {
     // VITCWONE
     "tti_f94c6bf7ffb1982691322d50",
     // VICATBNB
-    "tti_135ae433038c18fe0797f528"
+    "tti_135ae433038c18fe0797f528",
+    // VIVABNB
+    "tti_d05920af6f485fa52ffe4e69"
   ]
 
   constructor() {
