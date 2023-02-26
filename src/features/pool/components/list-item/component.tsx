@@ -147,7 +147,7 @@ export const PoolListItem: React.FC<Props> = (props: Props) => {
                         Total {props.pool?.rewardToken.originalSymbol} earned
                       </Typography>
                       <Typography variant="subtitle1">
-                        <TotalEarnedRewards pool={props.pool} decimals={0}></TotalEarnedRewards>
+                        <TotalEarnedRewards pool={props.pool} decimals={2}></TotalEarnedRewards>
                       </Typography>
                     </>
                   )}
