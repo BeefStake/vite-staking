@@ -128,6 +128,20 @@ export abstract class BaseDataSource implements IDataSource {
   }
 
   async getTokenAsync(id: string): Promise<Token> {
+    switch(id){
+      case "tti_b60ec4474e94e38b232c37fb": {
+        return {
+          __typename: "Token",
+          id,
+          name: "GummyBearCoin",
+          symbol: "GUMMYB",
+          originalSymbol: "GUMMYB",
+          decimals: 18,
+          iconUrl: "gummyb",
+          url: "https://vitamincoin.org"
+        }
+      }
+    }
     try {
       if(this._tokens.has(id))return this._tokens.get(id) as Token;
       // @ts-ignore

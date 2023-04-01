@@ -133,6 +133,10 @@ export const PoolListItem: React.FC<Props> = (props: Props) => {
         await poolService.withdrawAsync(props.pool.id, "0");
       }
     } catch (error) {
+      let e = error as any
+      if(e.message === "undefined"){
+        e.message = e.networkError
+      }
       SnackbarUtil.enqueueError(error);
     }
   }
