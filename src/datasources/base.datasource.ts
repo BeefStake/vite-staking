@@ -136,7 +136,7 @@ export abstract class BaseDataSource implements IDataSource {
           name: "GummyBearCoin",
           symbol: "GUMMYB",
           originalSymbol: "GUMMYB",
-          decimals: 18,
+          decimals: 10,
           iconUrl: "gummyb",
           url: "https://vitamincoin.org"
         }
