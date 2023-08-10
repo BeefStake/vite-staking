@@ -1,6 +1,6 @@
 import BigNumber from "bignumber.js";
 import { CoingeckoClient, getCoingeckoClient } from "../clients/coingecko.client";
-import { getWolkAPIClient, WolkAPIClient } from "../clients/minion.client";
+import { getWolkAPIClient, WolkAPIClient } from "../clients/wolk.client";
 import { getViteAPIClient, ViteAPIClient } from "../clients/vite-api.client";
 import { TypeNames, UnknownToken } from "../common/constants";
 import ActionQueue from "../common/queue";
