@@ -1,25 +1,25 @@
 import BigNumber from 'bignumber.js';
 import { getCoingeckoClient } from './coingecko.client';
 
-export enum MinionTokens {
-    MINION = "tti_da32dc3230fd8d25b4f215f9"
+export enum WolkTokens {
+    WOLK = "tti_e52613a75562cc20917785fd"
 }
 
-export class MinionAPIClient {
+export class WolkAPIClient {
   static tokens:string[] = [
-    MinionTokens.MINION
+    WolkTokens.WOLK
   ]
 
   async getTokenPriceUSD(tokenId: string): Promise<BigNumber> {
-    if(tokenId !== MinionTokens.MINION) throw new Error("Invalid token id");
+    if(tokenId !== WolkTokens.WOLK) throw new Error("Invalid token id");
     const coingecko = getCoingeckoClient()
     const vitePrice = await coingecko.getTokenPriceUSDAsync("Vite")
     return vitePrice.times("0.002") // presale price
   }
 }
 
-const client = new MinionAPIClient();
+const client = new WolkAPIClient();
 
-export const getMinionAPIClient = () => {
+export const getWolkAPIClient = () => {
   return client;
 }

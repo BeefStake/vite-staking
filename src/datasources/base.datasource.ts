@@ -1,6 +1,6 @@
 import BigNumber from "bignumber.js";
 import { CoingeckoClient, getCoingeckoClient } from "../clients/coingecko.client";
-import { getMinionAPIClient, MinionAPIClient } from "../clients/minion.client";
+import { getWolkAPIClient, WolkAPIClient } from "../clients/minion.client";
 import { getViteAPIClient, ViteAPIClient } from "../clients/vite-api.client";
 import { TypeNames, UnknownToken } from "../common/constants";
 import ActionQueue from "../common/queue";
@@ -87,7 +87,7 @@ export abstract class BaseDataSource implements IDataSource {
         if(ViteAPIClient.lptokens.includes(token.id))return getViteAPIClient().getLPTokenValue(token.id)
           .then(data => new BigNumber(data?.usd || 0))
 
-        if(MinionAPIClient.tokens.includes(token.id))return getMinionAPIClient().getTokenPriceUSD(token.id)
+        if(WolkAPIClient.tokens.includes(token.id))return getWolkAPIClient().getTokenPriceUSD(token.id)
         
         return this._coingeckoClient.getTokenPriceUSDAsync(token.name)
       }));
